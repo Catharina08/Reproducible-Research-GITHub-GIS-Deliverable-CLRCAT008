@@ -9,31 +9,80 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Libraries
 
 ```{r libraries}
-install.packages("ggplot2")
-install.packages("tidyverse")
 
+library(httr)
+library(sf) 
 library(ggplot2)
-library(tidyverse)
-library(sf)
-
-overberg_topo <- st_read("")
-
-st_crs(overberg_topo)
-```
-
-## Map
-
-You can also embed plots, for example:
-
-```{r topographic map}
+library(ggspatial)
+library(leaflet)
+library(dplyr)
+library(rinat)
 
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Striped Mouse Data Retrievals from iNat
+
+```{r data}
+
+data_striped_mouse <- get_inat_obs(
+  taxon_name = "Rhabdomys pumilio",
+  quality = "research", 
+  geo = TRUE, 
+  place_id = 113055, 
+  maxresults = 1000     
+)
+
+head(data_striped_mouse)
+names(data_striped_mouse)
+
+
+```
+
+
+## Vlei Rat Data Retrievals from iNat
+
+```{r data}
+
+data_vlei_rat <- get_inat_obs(
+  taxon_name = "Elephantulus edwardii",
+  quality = "research", 
+  geo = TRUE, 
+  place_id = 113055, 
+  maxresults = 1000     
+)
+
+head(data_vlei_rat)
+names(data_vlei_rat)
+
+
+```
+
+
+## Making into Map
+
+```{r}
+
+striped_mouse_map <- leaflet(data = data_striped_mouse) %>%
+  addTiles() %>%  
+  addCircleMarkers(lng = ~longitude, lat = ~latitude, 
+                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                                  "<br>Observation Date:", observed_on),
+                   color = "green", radius = 5, stroke = FALSE, fillOpacity = 0.7)
+
+striped_mouse_map
+
+vlei_rat_map <- leaflet(data = data_vlei_rat) %>%
+  addTiles() %>%  
+  addCircleMarkers(lng = ~longitude, lat = ~latitude, 
+                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                                  "<br>Observation Date:", observed_on),
+                   color = "blue", radius = 5, stroke = FALSE, fillOpacity = 0.7)
+
+vlei_rat_map
+```
+
