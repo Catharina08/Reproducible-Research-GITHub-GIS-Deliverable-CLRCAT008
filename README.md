@@ -4,5 +4,3 @@ Due to challenges with aquiring useable topographic map data for use in this pro
 
 
 HTML link for viewing: [https://htmlview.glitch.me/?https://github.com/Catharina08/Reproducible-Research-GITHub-GIS-Deliverable-CLRCAT008/blob/main/GIS-Deliverable.html](https://htmlview.glitch.me/?https://github.com/Catharina08/Reproducible-Research-GITHub-GIS-Deliverable-CLRCAT008/blob/main/GIS-Deliverable.html)
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Catharina08/Reproducible-Research-GITHub-GIS-Deliverable-CLRCAT008/HEAD)
