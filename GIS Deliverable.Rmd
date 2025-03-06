@@ -26,7 +26,7 @@ library(rinat)
 ```
 
 
-## Striped Mouse Data Retrievals from iNat
+## Striped Mouse (Rhabdomys pumilio) Data Retrievals from iNat
 
 ```{r data}
 
@@ -45,7 +45,7 @@ names(data_striped_mouse)
 ```
 
 
-## Vlei Rat Data Retrievals from iNat
+## Vlei Rat (Elephantulus edwardii) Data Retrievals from iNat
 
 ```{r data}
 
@@ -64,26 +64,155 @@ names(data_vlei_rat)
 ```
 
 
+## Cape Gerbil (Crocidura cyanea) Data Retrievals from iNat
+
+```{r data}
+
+data_cape_gerbil <- get_inat_obs(
+  taxon_name = "Crocidura cyanea",
+  quality = "research", 
+  geo = TRUE, 
+  place_id = 113055, 
+  maxresults = 1000     
+)
+
+head(data_vlei_rat)
+names(data_vlei_rat)
+
+
+```
+
+
+## Pygmy mouse (Mus minutoides) Data Retrievals from iNat
+
+```{r data}
+
+data_pygmy_mouse <- get_inat_obs(
+  taxon_name = "Mus minutoides",
+  quality = "research", 
+  geo = TRUE, 
+  place_id = 113055, 
+  maxresults = 1000     
+)
+
+head(data_vlei_rat)
+names(data_vlei_rat)
+
+
+```
+
+
+## Grey musk shrew (Micaelamys namaquensis) Data Retrievals from iNat
+
+```{r data}
+
+data_grey_musk_shrew <- get_inat_obs(
+  taxon_name = "Micaelamys namaquensis",
+  quality = "research", 
+  geo = TRUE, 
+  place_id = 113055, 
+  maxresults = 1000     
+)
+
+head(data_vlei_rat)
+names(data_vlei_rat)
+
+
+```
+
+
+## Cape rock sengi (Otomys irroratus) Data Retrievals from iNat
+
+```{r data}
+
+data_cape_rock_sengi <- get_inat_obs(
+  taxon_name = "Otomys irroratus",
+  quality = "research", 
+  geo = TRUE, 
+  place_id = 113055, 
+  maxresults = 1000     
+)
+
+head(data_vlei_rat)
+names(data_vlei_rat)
+
+
+```
+
+
+## Namaqua rock mouse (Gerbilliscus afra) Data Retrievals from iNat
+
+```{r data}
+
+data_namaqua_rock_mouse <- get_inat_obs(
+  taxon_name = "Gerbilliscus afra",
+  quality = "research", 
+  geo = TRUE, 
+  place_id = 113055, 
+  maxresults = 1000     
+)
+
+head(data_vlei_rat)
+names(data_vlei_rat)
+
+
+```
+
+
 ## Making into Map
 
 ```{r}
 
-striped_mouse_map <- leaflet(data = data_striped_mouse) %>%
+small_mammals_map <- leaflet() %>%
   addTiles() %>%  
-  addCircleMarkers(lng = ~longitude, lat = ~latitude, 
+  
+  addCircleMarkers(data = data_vlei_rat, 
+                   lng = ~longitude, lat = ~latitude, 
                    popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
                                   "<br>Observation Date:", observed_on),
-                   color = "green", radius = 5, stroke = FALSE, fillOpacity = 0.7)
-
-striped_mouse_map
-
-vlei_rat_map <- leaflet(data = data_vlei_rat) %>%
-  addTiles() %>%  
-  addCircleMarkers(lng = ~longitude, lat = ~latitude, 
+                   color = "blue", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
+  
+  addCircleMarkers(data = data_striped_mouse, 
+                   lng = ~longitude, lat = ~latitude, 
                    popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
                                   "<br>Observation Date:", observed_on),
-                   color = "blue", radius = 5, stroke = FALSE, fillOpacity = 0.7)
+                   color = "green", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
+  
+  addCircleMarkers(data = data_pygmy_mouse, 
+                   lng = ~longitude, lat = ~latitude, 
+                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                                  "<br>Observation Date:", observed_on),
+                   color = "red", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
+  
+  addCircleMarkers(data = data_cape_gerbil, 
+                   lng = ~longitude, lat = ~latitude, 
+                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                                  "<br>Observation Date:", observed_on),
+                   color = "purple", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
+  
+  addCircleMarkers(data = data_grey_musk_shrew, 
+                   lng = ~longitude, lat = ~latitude, 
+                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                                  "<br>Observation Date:", observed_on),
+                   color = "grey", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
+  
+  addCircleMarkers(data = data_cape_rock_sengi, 
+                   lng = ~longitude, lat = ~latitude, 
+                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                                  "<br>Observation Date:", observed_on),
+                   color = "orange", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
+  
+  addCircleMarkers(data = data_namaqua_rock_mouse, 
+                   lng = ~longitude, lat = ~latitude, 
+                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                                  "<br>Observation Date:", observed_on),
+                   color = "black", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
 
-vlei_rat_map
+  addLegend("bottomright", 
+            colors = c("blue", "green", "red", "purple", "grey", "orange", "black"), 
+            labels = c("Vlei rat", "Striped mouse", "Pygmy mouse", "Cape gerbil", "Grey musk shrew", "Cape rock sengi", "Namaqua rock mouse"),
+            title = "Species")
+
+small_mammals_map
 ```
 
