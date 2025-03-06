@@ -168,43 +168,43 @@ small_mammals_map <- leaflet() %>%
   
   addCircleMarkers(data = data_vlei_rat, 
                    lng = ~longitude, lat = ~latitude, 
-                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                   popup = ~paste("Common Name:", common_name, "<br>Species:", scientific_name, 
                                   "<br>Observation Date:", observed_on),
                    color = "blue", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
   
   addCircleMarkers(data = data_striped_mouse, 
                    lng = ~longitude, lat = ~latitude, 
-                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                   popup = ~paste("Common Name:", common_name, "<br>Species:", scientific_name, 
                                   "<br>Observation Date:", observed_on),
                    color = "green", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
   
   addCircleMarkers(data = data_pygmy_mouse, 
                    lng = ~longitude, lat = ~latitude, 
-                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                   popup = ~paste("Common Name:", common_name, "<br>Species:", scientific_name, 
                                   "<br>Observation Date:", observed_on),
                    color = "red", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
   
   addCircleMarkers(data = data_cape_gerbil, 
                    lng = ~longitude, lat = ~latitude, 
-                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                   popup = ~paste("Common Name:", common_name, "<br>Species:", scientific_name, 
                                   "<br>Observation Date:", observed_on),
                    color = "purple", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
   
   addCircleMarkers(data = data_grey_musk_shrew, 
                    lng = ~longitude, lat = ~latitude, 
-                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                   popup = ~paste("Common Name:", common_name, "<br>Species:", scientific_name, 
                                   "<br>Observation Date:", observed_on),
                    color = "grey", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
   
   addCircleMarkers(data = data_cape_rock_sengi, 
                    lng = ~longitude, lat = ~latitude, 
-                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                   popup = ~paste("Common Name:", common_name, "<br>Species:", scientific_name, 
                                   "<br>Observation Date:", observed_on),
                    color = "orange", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
   
   addCircleMarkers(data = data_namaqua_rock_mouse, 
                    lng = ~longitude, lat = ~latitude, 
-                   popup = ~paste("ID:", id, "<br>Species:", scientific_name, 
+                   popup = ~paste("Common Name:", common_name, "<br>Species:", scientific_name, 
                                   "<br>Observation Date:", observed_on),
                    color = "black", radius = 5, stroke = FALSE, fillOpacity = 0.7) %>%
 
