@@ -28,7 +28,7 @@ library(rinat)
 
 ## Striped Mouse (Rhabdomys pumilio) Data Retrievals from iNat
 
-```{r data}
+```{r striped mouse data}
 
 data_striped_mouse <- get_inat_obs(
   taxon_name = "Rhabdomys pumilio",
@@ -47,7 +47,7 @@ names(data_striped_mouse)
 
 ## Vlei Rat (Elephantulus edwardii) Data Retrievals from iNat
 
-```{r data}
+```{r vlei rat data}
 
 data_vlei_rat <- get_inat_obs(
   taxon_name = "Elephantulus edwardii",
@@ -66,7 +66,7 @@ names(data_vlei_rat)
 
 ## Cape Gerbil (Crocidura cyanea) Data Retrievals from iNat
 
-```{r data}
+```{r cape gerbil data}
 
 data_cape_gerbil <- get_inat_obs(
   taxon_name = "Crocidura cyanea",
@@ -85,7 +85,7 @@ names(data_vlei_rat)
 
 ## Pygmy mouse (Mus minutoides) Data Retrievals from iNat
 
-```{r data}
+```{r pygmy mouse data}
 
 data_pygmy_mouse <- get_inat_obs(
   taxon_name = "Mus minutoides",
@@ -104,7 +104,7 @@ names(data_vlei_rat)
 
 ## Grey musk shrew (Micaelamys namaquensis) Data Retrievals from iNat
 
-```{r data}
+```{r shrew data}
 
 data_grey_musk_shrew <- get_inat_obs(
   taxon_name = "Micaelamys namaquensis",
@@ -123,7 +123,7 @@ names(data_vlei_rat)
 
 ## Cape rock sengi (Otomys irroratus) Data Retrievals from iNat
 
-```{r data}
+```{r rock sengi data}
 
 data_cape_rock_sengi <- get_inat_obs(
   taxon_name = "Otomys irroratus",
@@ -142,7 +142,7 @@ names(data_vlei_rat)
 
 ## Namaqua rock mouse (Gerbilliscus afra) Data Retrievals from iNat
 
-```{r data}
+```{r rock mouse data}
 
 data_namaqua_rock_mouse <- get_inat_obs(
   taxon_name = "Gerbilliscus afra",
